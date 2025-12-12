@@ -8,6 +8,6 @@ router.register(r'orders', OrderViewSet, basename='order')
 router.register(r'auth', RegisterViewSet, basename='auth')
 
 urlpatterns = [
-    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('', include(router.urls)),
 ]

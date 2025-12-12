@@ -19,6 +19,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'password', 'role', 'vendor']
 
     def create(self, validated_data):
+        if validated_data.get('role') == 'store_owner' and validated_data.get('vendor') is None:
+            raise serializers.ValidationError({'vendor': 'Store owner must have a vendor assigned.'})
         password = validated_data.pop('password')
         user = User(**validated_data)
         user.set_password(password)

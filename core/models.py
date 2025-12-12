@@ -16,7 +16,7 @@ class Vendor(models.Model):
         return self.name
 
 class CustomUser(AbstractUser):
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="customer")
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     vendor = models.ForeignKey(Vendor, null=True, blank=True, on_delete=models.CASCADE, related_name='users')
 
     def is_store_owner(self):
