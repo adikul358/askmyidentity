@@ -1,11 +1,11 @@
 meta {
-  name: Create Product
+  name: Create Order
   type: http
-  seq: 5
+  seq: 7
 }
 
 post {
-  url: http://localhost:8000/api/products/
+  url: http://localhost:8000/api/orders/
   body: json
   auth: bearer
 }
@@ -15,7 +15,7 @@ auth:bearer {
 }
 
 body:json {
-  {"name": "Metal Sheet", "price": 250}
+  {"items": [{"product": 2, "quantity": 1}]}
 }
 
 settings {

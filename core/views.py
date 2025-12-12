@@ -33,9 +33,6 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        # Superuser sees everything
-        if user.is_superuser:
-            return Product.objects.all()
         # limit to user's vendor
         return Product.objects.filter(vendor=user.vendor)
 
